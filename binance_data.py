@@ -9,7 +9,7 @@ url = "https://api.coingecko.com/api/v3/coins/markets"
 parameters = {
     'vs_currency': 'usd',
     'order': 'market_cap_desc',
-    'per_page': 35,
+    'per_page': 20,
     'page': 1,
     'sparkline': False
 }
@@ -25,7 +25,7 @@ binance_symbols = [info['symbol'] for info in client.get_exchange_info()['symbol
 filtered_data = [crypto for crypto in filtered_data if
                  f"{crypto['symbol'].upper()}USDT" in binance_symbols]
 
-top_20_cryptos = filtered_data[:20]
+top_20_cryptos = filtered_data[:10]
 
 symbols = [crypto['symbol'].upper() for crypto in top_20_cryptos]
 print(symbols)
